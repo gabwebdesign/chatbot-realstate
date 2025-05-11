@@ -1,0 +1,95 @@
+{
+    "for_sale": "true",
+    "for_rent": "true",
+    "for_transfer": "false",
+    "id_property_type": 14,
+    "id_country": 1,
+    "country_label": "Colombia",
+    "id_region": 26,
+    "region_label": "Quindio",
+    "id_city": 63,
+    "city_label": "Armenia",
+    "id_zone": 0,
+    "id_currency": 1,
+    "iso_currency": "COP",
+    "name_currency": "Pesos Colombianos",
+    "title": "SV65850-44301",
+    "address": "Av/  de la peseta  # 110 - 25",
+    "tv_share": 0,
+    "half_bathrooms": 1,
+    "area": "79",
+    "id_unit_area": "1",
+    "unit_area_label": "M2",
+    "built_area": "",
+    "id_unit_built_area": "1",
+    "unit_built_area_label": "M2",
+    "private_area": "",
+    "id_unit_private_area": "1",
+    "unit_private_area_label": "M2",
+    "maintenance_fee": "0",
+    "sale_price": "150000000",
+    "sale_price_label": "$150.000.000",
+    "rent_price": "0",
+    "rent_price_label": "$0",
+    "bedrooms": "2",
+    "bathrooms": "1",
+    "garages": "0",
+    "floor": "",
+    "observations": "Aqui las observaciones del ejemplo 1",
+    "id_property_condition": "2",
+    "property_condition_label": "Used",
+    "id_status_on_page": "3",
+    "status_on_page_label": "Outstanding",
+    "map": "",
+    "latitude": "",
+    "longitude": "",
+    "building_date": "",
+    "network_share": false,
+    "visits": 79,
+    "created_at": "2015-09-07 16:22:45",
+    "updated_at": "2016-04-06 14:40:01",
+    "id_rents_type": "4",
+    "rents_type_label": "Monthly",
+    "id_availability": "2",
+    "availability_label": "Sold",
+    "id_publish_on_map": "1",
+    "publish_on_map_label": "Do not post",
+    "features": {
+        "internal": [
+            {
+                "id": "2",
+                "nombre": "Alarma",
+                "name": ""
+            },
+            {
+                "id": "4",
+                "nombre": "Amoblado",
+                "name": ""
+            },
+            {
+                "id": "84",
+                "nombre": "Armarios empotrados",
+                "name": ""
+            },
+            {
+                "id": "5",
+                "nombre": "Balcón",
+                "name": ""
+            }
+        ],
+        "external": [
+            {
+                "id": "53",
+                "nombre": "Árboles frutales",
+                "name": ""
+            },
+            {
+                "id": "78",
+                "nombre": "Área social",
+                "name": ""
+            }
+        ]
+    },
+    "label": "Parque central",
+    "owner": "own"
+}

@@ -1,0 +1,54 @@
+{
+    "properties": [
+      {
+        "id": 1,
+        "location": "San Carlos, Costa Rica",
+        "type": "Apartment",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size": "850 sqft",
+        "price": "$3000/month",
+        "image": "https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9nMTU4NzM2MTIwMjQwMjI3MDgzNzAxLmpwZyIsImVkaXRzIjp7Im5vcm1hbGlzZSI6dHJ1ZSwicm90YXRlIjowLCJyZXNpemUiOnsid2lkdGgiOjkwMCwiaGVpZ2h0Ijo2NzUsImZpdCI6ImNvbnRhaW4iLCJiYWNrZ3JvdW5kIjp7InIiOjI1NSwiZyI6MjU1LCJiIjoyNTUsImFscGhhIjoxfX19fQ=="
+      },
+      {
+        "id": 2,
+        "location": "Puntarenas, Costa Rica",
+        "type": "House",
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size": "1200 sqft",
+        "price": "$4500/month",
+        "image": "https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9nX3NlX3ZlbmRlX2FwYXJ0YW1lbnRvX2VuX25hdGl2YV8xNzM4NjM4OTYzLTY3MzZfNjgyNi5qcGVnIiwiZWRpdHMiOnsibm9ybWFsaXNlIjp0cnVlLCJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTAwLCJoZWlnaHQiOjY3NSwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19"
+      },
+      {
+        "id": 3,
+        "location": "Heredia, Costa Rica",
+        "type": "Apartment",
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "size": "600 sqft",
+        "price": "$2000/month",
+        "image": "https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9nMTU4NzM2NDYyMDI1MDEyNTEwNTIzOS5qcGVnIiwiZWRpdHMiOnsibm9ybWFsaXNlIjp0cnVlLCJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTAwLCJoZWlnaHQiOjY3NSwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19"
+      },
+      {
+        "id": 4,
+        "location": "Liberia, Costa Rica",
+        "type": "House",
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size": "1500 sqft",
+        "price": "$3500/month",
+        "image": "https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9nX3NlX3ZlbmRlX2FwYXJ0YW1lbnRvX2VuX25hdGl2YV8xNzM4NjM4OTYzLTY3MzZfNjgyNi5qcGVnIiwiZWRpdHMiOnsibm9ybWFsaXNlIjp0cnVlLCJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTAwLCJoZWlnaHQiOjY3NSwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19"
+      },
+      {
+        "id": 5,
+        "location": "Cartago, Costa Rica",
+        "type": "Apartment",
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "size": "900 sqft",
+        "price": "$2500/month",
+        "image": "https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9nMTU4NzM2MjAyMDI1MDEwNzA1MDUzOS5qcGVnIiwiZWRpdHMiOnsibm9ybWFsaXNlIjp0cnVlLCJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTAwLCJoZWlnaHQiOjY3NSwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19"
+      }
+    ]
+  }

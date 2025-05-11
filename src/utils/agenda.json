@@ -1,0 +1,29 @@
+{
+    "0": {
+        "management_id": 1,
+        "management_type_id": "3",
+        "management_type_label": "Meeting",
+        "management_status_id": "2",
+        "management_status_label": "In process",
+        "subject": "Reunion con cliente",
+        "description": "Descripcion de la reunion",
+        "date": "2025-02-08 11:47:00",
+        "compliance_degree": 50,
+        "id_user": 9,
+        "alert": 5
+    },
+    "1": {
+        "management_id": 2,
+        "management_type_id": "1",
+        "management_type_label": "Call",
+        "management_status_id": "1",
+        "management_status_label": "Pending",
+        "subject": "Llamar cliente ",
+        "description": "Descripcion llamada",
+        "date": "2025-02-09 11:00:00",
+        "compliance_degree": 0,
+        "id_user": 9,
+        "alert": "false"
+    },
+    "status": "success"
+}
