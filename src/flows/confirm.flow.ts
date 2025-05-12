@@ -4,9 +4,9 @@ import { clearHistory, handleHistory, getHistoryParse } from "../utils/handleHis
 import { getFullCurrentDate } from "../utils/getDates";
 import twilio from "twilio";
 import { Customer } from "src/utils/types";
-import { createClient, getEstatesById, relateClientToProperty } from "src/services/wasi";
 import { GlobalState } from "src/utils/globalManagement";
 import { isValidEmail } from "src/utils/validEmail";
+import { createContact } from "src/services/hubspot/page";
 
 const generatePromptToFormatDate = (history: string) => {
     const prompt = `Fecha de Hoy:${getFullCurrentDate()}, Basado en el Historial de conversacion: 
@@ -87,27 +87,23 @@ const flowNotification = addKeyword(EVENTS.ACTION)
     .addAction(async (ctx, { state, flowDynamic, endFlow }) => {
 
         const customer:Customer = {
-            name: state.get('name'),
-            date: state.get('startDate'),
+            firstName: state.get('name'),
             email: ctx.body,
             phone: ctx.from
         }
         
         const client = twilio(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
-        const newCustomer = await createClient(customer);
-        console.log('newCustomer', newCustomer);
+        const newCustomer = await createContact(customer);
+        console.log('newCustomer', newCustomer);        
         
-        const estate = await getEstatesById(GlobalState.getPropertyId());        
-        console.log('estate del cliente interesado', estate);
-        
-        await relateClientToProperty(newCustomer.id_client,estate.id_property);
         await flowDynamic('Listo! Un agente de Inmobiliaria Roca Forte gestionará la cita para la hora deseada. Te estaremos informando lo más pronto posible.')
         await client.messages.create({
             body: `Un cliente ha solicitado crear una cita: 
-                   Nombre: ${customer.name}
-                   Posible fecha y hora: ${customer.date}
+                   Nombre: ${customer.firstName}
+                   Posible fecha y hora: ${state.get('startDate')}
                    Email: ${customer.email}
-                   Teléfono: ${customer.phone}`,
+                   Teléfono: ${customer.phone}
+                   historial: ${getHistoryParse(state)}`,
             from: `whatsapp:+${process.env.TWILIO_WHATSAPP_NUMBER}`,
             to: "whatsapp:+50671386788"  // Inmobiliaria Roca Forte Phone number
         });

@@ -28,8 +28,9 @@ export type User = {
 }
 
 export type Customer = {
-    name: string;
     email: string;
-    date: string;
-    phone: string;
+    firstName: string;
+    lastName?: string;
+    phone?: string;
+    company?: string;
 }

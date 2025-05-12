@@ -13,9 +13,9 @@ const flowWelcome = addKeyword(EVENTS.WELCOME)
         const hasGreeted = history.some(entry => entry.content.includes('Hola, te saluda tu agente de Roca Forte Real State'));        
         if (!hasGreeted) {
             await flowDynamic([
-                { body: `Hola ${name}, te saluda tu agente de Roca Forte Real State,🫡 Es un verdadero gusto atenderte.!` },
+                { body: `Hola ${name}, te saluda tu agente de Casa Forte Real State,🫡 Es un verdadero gusto atenderte.!` },
                 { body: `Cuenta con todo nuestro apoyo para hacer realidad tu casa 🙏` },
-                { body: `Cuéntame si deseas comprar, vender o rentar alguna propiedad. Conversemos, estoy para apoyar 🙌` }
+                { body: `Cuéntame en que te puedo ayudar 🙌` }
             ]);
             await handleHistory({ content: 'Hola, te saluda tu agente de Roca Forte Real State', role: 'assistant' }, state);
         }

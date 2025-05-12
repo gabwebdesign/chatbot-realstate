@@ -3,45 +3,68 @@ import { generateTimer } from "../utils/generateTimer";
 import { getHistoryParse, handleHistory } from "../utils/handleHistory";
 import AIClass from "../services/ai";
 import { getFullCurrentDate } from "src/utils/getDates";
-import { flowWasiRequest } from "./wasi-request.flow";
+import { getProducts } from "src/services/hubspot/page";
 
 
-const PROMPT_SELLER = `Eres el asistente virtual en la inmobiliaria "Rocaforte Real State", ubicada en San José, Costa Rica. Tu principal responsabilidad es averiguar las caracteristicas de la propiedad que el usuario esta necesitando.
-
+const PROMPT_SELLER = `Actúa como un agente inmobiliario profesional, cordial y enfocado en ayudar al cliente a encontrar la propiedad ideal.
 -----
 HISTORIAL DE LA CONVERSACION: {HISTORIAL_CONVERSACION}
 -----
 {CURRENT_DAY}
-DIRECTRICES DE INTERACCIÓN:
-1. Tu objetivo es buscar en el HISTORIAL DE LA CONVERSACION tres datos esenciales: Localidad de la propiedad, Cantidad de habitaciones y Cantidad de parqueos.
-2. Vas a preguntar al usuario amablemente por los datos que no encuentres en el HISTORIAL DE LA CONVERSACION.
-3. Si el usuario ha dado una respuesta vaga (ejemplo: "No sé", "Cualquiera", "No importa", "Lo que haya", "No necesito", etc), entonces y solo entonces consideraras que ese dato no es relevante y no lo colocarás como pendiente, sino como que el cliente ya contestó.
-4. Interpreta respuestas con números en palabras o dígitos: "dos" o "2" para la cantidad de habitaciones, "tres" o "3" para la cantidad de parqueos.
-5. No preguntes por información de contacto, ni por información personal. 
-6. Solo debes preguntar por la localidad, cantidad de habitaciones y cantidad de parqueos, nada más.
-7. Vas a responder con la frase "INFORMACIÓN COMPLETA" antes de tu pregunta, si en el HISTORIAL DE LA CONVERSACION se encuentran los tres datos esenciales, recuerda ignorar el dato que el cliente respondio vagamente.
-8. Vas a responder con la frase  "INFORMACIÓN INCOMPLETA" antes de tu pregunta, si en el HISTORIAL DE LA CONVERSACION no se encuentran los tres datos esenciales, recuerda ignorar el dato que el cliente respondio vagamente.
-9. Nunca incluyas la palabra "Vendedor:" o "Cliente:" en tus preguntas, solo la pregunta.
-10. No preguntes por el rango de precio.
-11. Si el usuario no ha dicho que el dato espacios de parqueo es irrelevante, entonces debes preguntar por la cantidad de parqueos.
+-----
+DATOS PROPIEDADES: {PROPIEDADES}
+-----
+
+Actúa como un agente inmobiliario profesional, cordial y enfocado en ayudar al cliente a encontrar la propiedad ideal.
+
+Tu tarea es responder preguntas relacionadas con propiedades inmobiliarias disponibles, usando únicamente la información que te será proporcionada desde una API externa (por ejemplo, una lista de propiedades en venta con sus características). No inventes propiedades ni asumas datos que no estén presentes en la lista.
+
+Para cada consulta, ya tienes los datos de las propiedades disponibles, selecciona solo las que sean relevantes según lo que el cliente menciona: ubicación, número de habitaciones, tipo (casa, apartamento), características especiales (balcón, jardín, parqueo, etc.) y rango de precio si se menciona.
+
+Debes consultar el historial de conversación para entender el contexto y la intención del cliente. Si el cliente menciona algo específico, asegúrate de que tu respuesta esté alineada con eso.
+
+No repitas respuestas anteriores ni uses frases genéricas. Cada respuesta debe ser única y adaptada a la consulta actual del cliente.
+
+Responde de forma clara, natural y profesional. Usa frases útiles como:
+
+- "Claro, tenemos algunas opciones interesantes en {ubicación}..."
+- "Sí, contamos con propiedades que tienen {característica solicitada}..."
+- "Por el momento no tenemos propiedades con esas características exactas, pero puedo recomendarle algo similar..."
+
+**Formato de respuesta ideal:**
+
+1. ✅ Responde directamente a la intención del cliente.
+2. 🏡 Muestra de 1 a 3 propiedades que coincidan.
+3. ℹ️ Incluye nombre o código de la propiedad, precio, ubicación y hasta 2 características relevantes.
+4. 🤝 Cierra ofreciendo seguimiento: "¿Desea agendar una cita?"
+
+No menciones que la información viene de un sistema o API. Habla como un humano que ya tiene toda esa información a mano.
+
+Si no hay resultados, responde con cortesía y ofrece alternativas.
+
+Tu objetivo es dar respuestas útiles, humanas y enfocadas en cerrar una oportunidad de venta.
 `;
 
 
-export const generatePromptSeller = (history:string) => {
+export const generatePromptSeller = async (history:string) => {
     const nowDate = getFullCurrentDate()
-    return PROMPT_SELLER.replace('{HISTORIAL_CONVERSACION}', history).replace('{CURRENT_DAY}', nowDate)
+    const properties = await getProducts()
+    return PROMPT_SELLER
+    .replace('{HISTORIAL_CONVERSACION}', history)
+    .replace('{CURRENT_DAY}', nowDate)
+    .replace('{PROPIEDADES}', JSON.stringify(properties))
 };
 
 /**
  * Hablamos con el PROMPT que sabe sobre las cosas basicas del negocio, info, precio, etc.
  */
-const flowSeller = addKeyword(EVENTS.ACTION).addAction(async (_, { state, flowDynamic, gotoFlow, extensions }) => {
+const flowSeller = addKeyword(EVENTS.ACTION).addAction(async (_, { state, flowDynamic, extensions }) => {
 
     console.log('🔍 En Flow Seller')
     try {
         const ai = extensions.ai as AIClass
         const history = getHistoryParse(state)
-        const prompt = generatePromptSeller(history)
+        const prompt = await generatePromptSeller(history)
 
         const text = await ai.createChat([
             {
@@ -52,41 +75,13 @@ const flowSeller = addKeyword(EVENTS.ACTION).addAction(async (_, { state, flowDy
 
         await handleHistory({ content: text, role: 'assistant' }, state)
         console.log('historial:', history)
-
-        if(text.includes('INFORMACIÓN COMPLETA')){
-            await flowDynamic('¡Excelente! Procesando su información.')
-            return;
-        }else{
-            console.log('Preguntando por info faltante')
-            const response = text.replace("INFORMACIÓN INCOMPLETA", "").trim();
-            await flowDynamic([{ body: response, delay: generateTimer(50, 150) }]);
-        }
+        console.log('text:', text)
+        await flowDynamic([{ body: text, delay: generateTimer(50, 150) }]);
         
     } catch (err) {
         console.log(`[ERROR]:`, err)
         return
     }
-}).addAction({ capture: true }, async (message, { state, gotoFlow,flowDynamic,extensions }) => {
-    console.log("✍️ Usuario respondió:", message.body);
-    await handleHistory({ content: message.body, role: "user" }, state);
-
-    // Verificamos nuevamente si ya se tienen los datos necesarios antes de reiniciar el flujo
-    const history = getHistoryParse(state);
-    console.log("📌 Historial después de la respuesta del usuario:", history);
-    const prompt = generatePromptSeller(history);
-    const ai = extensions.ai as AIClass
-
-    const text = await ai.createChat([{ role: "system", content: prompt }], "gpt-3.5-turbo-16k");
-
-    console.log("🔄 Verificación después de la respuesta del usuario:", text);
-
-    if (text.includes("INFORMACIÓN COMPLETA")) {
-        await flowDynamic("¡Gracias! ⏳ Procesando su información...");
-        gotoFlow(flowWasiRequest);
-        return;
-    }
-
-    await gotoFlow(flowSeller);
 });
 
 export { flowSeller }
