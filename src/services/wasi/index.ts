@@ -186,7 +186,7 @@ async function createClient(user: Customer) {
             body: JSON.stringify({
                 "wasi_token": process.env.WASI_TOKEN,
                 "id_company": process.env.WASI_COMPANY_ID,
-                "first_name": user.name,
+                "first_name": user.firstName,
                 "email": user.email,
                 "phone": user.phone,
                 "id_user": process.env.WASI_USER_ID,

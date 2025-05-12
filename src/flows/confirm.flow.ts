@@ -94,9 +94,9 @@ const flowNotification = addKeyword(EVENTS.ACTION)
         
         const client = twilio(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
         const newCustomer = await createContact(customer);
-        console.log('newCustomer', newCustomer);        
+        console.log('newCustomer', newCustomer);    
         
-        await flowDynamic('Listo! Un agente de Inmobiliaria Roca Forte gestionará la cita para la hora deseada. Te estaremos informando lo más pronto posible.')
+        await flowDynamic('Listo! Un agente de Inmobiliaria Casa Forte gestionará la cita para la hora deseada. Te estaremos informando lo más pronto posible.')
         await client.messages.create({
             body: `Un cliente ha solicitado crear una cita: 
                    Nombre: ${customer.firstName}

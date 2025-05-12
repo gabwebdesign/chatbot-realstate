@@ -4,14 +4,10 @@ import { generateTimer } from "src/utils/generateTimer"
 import { getHistoryParse, handleHistory } from "src/utils/handleHistory";
 import propertyData from "src/utils/property.json";
 import { flowSchedule } from "./schedule.flow";
-import { downloadAudio, transcribeAudio } from "src/services/whisper";
-import { add } from "date-fns";
-import { join } from "path";
 import { downloadAndDecryptAudio } from "src/services/whisper/downloadAndDecryptAudio";
 import extractWasiLink from "src/utils/indentifyLink";
 import { getEstatesById } from "src/services/wasi";
 import { GlobalState } from "src/utils/globalManagement";
-import { get } from "http";
 
 
 const propiedad = propertyData;
