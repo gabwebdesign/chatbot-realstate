@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx tsx src/app.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
     "@builderbot-plugins/openai-agents": "^1.0.10",
     "@builderbot-plugins/telegram": "0.2.13-alpha.0",
     "@builderbot/bot": "^1.2.5",
+    "@whiskeysockets/baileys": "6.6.0",
     "axios": "^1.8.2",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.7",
@@ -26,6 +28,7 @@
     "nodemon": "^3.1.9",
     "openai": "^4.85.3",
     "pnpm": "^10.6.2",
+    "sharp": "^0.34.1",
     "twilio": "^5.4.5",
     "update": "^0.7.4"
   },
@@ -35,5 +38,10 @@
     "eslint": "^9.27.0",
     "tsm": "^2.3.0",
     "tsx": "^4.19.3"
+  },
+  "pnpm": {
+  "overrides": {
+    "@whiskeysockets/baileys": "6.6.0"
   }
+}
 }
