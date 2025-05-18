@@ -30,6 +30,9 @@
     "update": "^0.7.4"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
     "tsm": "^2.3.0",
     "tsx": "^4.19.3"
   }
