@@ -1,6 +1,6 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
 import AIClass from "../services/ai";
-import { clearHistory, handleHistory, getHistoryParse } from "../utils/handleHistory";
+import { clearHistory, handleHistory, getHistoryParse } from "../utils/handleHistory.js";
 import { getFullCurrentDate } from "../utils/getDates";
 import twilio from "twilio";
 import { Customer } from "src/utils/types";

@@ -1,10 +1,10 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
 import AIClass from "../services/ai";
-import { getHistoryParse, handleHistory } from "../utils/handleHistory";
-import { generateTimer } from "../utils/generateTimer";
-import { getFullCurrentDate } from "src/utils/getDates";
-import { gettingAgenda } from "src/services/wasi";
-import { flowConfirm } from "./confirm.flow";
+import { getHistoryParse, handleHistory } from "../utils/handleHistory.js";
+import { generateTimer } from "../utils/generateTimer.js";
+import { getFullCurrentDate } from "src/utils/getDates.js";
+import { gettingAgenda } from "src/services/wasi/index.js";
+import { flowConfirm } from "./confirm.flow.js";
 
 const PROMPT_SCHEDULE = `
 Como ingeniero de inteligencia artificial especializado en la programación de reuniones, tu objetivo sugerir una fecha y hora para programar una reunión. La reunión durará aproximadamente 45 minutos y solo puede ser programada entre las 9am y las 4pm, de lunes a viernes.

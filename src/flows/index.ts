@@ -1,9 +1,9 @@
 import { createFlow } from "@bot-whatsapp/bot";
-import  { flowWelcome } from "./welcome.flow";
-import { flowSeller } from "./seller.flow";
-import { flowConfirmDate, flowSchedule } from "./schedule.flow";
-import { flowAskEmail, flowConfirm, flowNotification, flowValidatingEmail } from "./confirm.flow";
-import { flowSocial, flowVoiceSocial } from "./social.flow";
+import  { flowWelcome } from "./welcome.flow.js";
+import { flowSeller } from "./seller.flow.js";
+import { flowConfirmDate, flowSchedule } from "./schedule.flow.js";
+import { flowAskEmail, flowConfirm, flowNotification, flowValidatingEmail } from "./confirm.flow.js";
+import { flowSocial, flowVoiceSocial } from "./social.flow.js";
 
 /**
  * Declaramos todos los flujos que vamos a utilizar

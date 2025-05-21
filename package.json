@@ -37,11 +37,12 @@
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9.27.0",
     "tsm": "^2.3.0",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   },
   "pnpm": {
-  "overrides": {
-    "@whiskeysockets/baileys": "6.6.0"
+    "overrides": {
+      "@whiskeysockets/baileys": "6.6.0"
+    }
   }
-}
 }

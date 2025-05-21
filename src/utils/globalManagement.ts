@@ -1,4 +1,4 @@
-import { History } from "./handleHistory";
+import { History } from "./handleHistory.js";
 
 interface BotState {
     history: History[];

@@ -1,10 +1,10 @@
 import { BotContext, BotMethods } from "@bot-whatsapp/bot/dist/types"
-import { getHistoryParse } from "../utils/handleHistory"
-import AIClass from "../services/ai"
-import { flowSeller } from "../flows/seller.flow"
-import { flowSchedule } from "../flows/schedule.flow"
-import { flowSocial } from "src/flows/social.flow"
-import { flowConfirm } from "src/flows/confirm.flow"
+import { getHistoryParse } from "../utils/handleHistory.js"
+import AIClass from "../services/ai/index.js"
+import { flowSeller } from "../flows/seller.flow.js"
+import { flowSchedule } from "../flows/schedule.flow.js"
+import { flowSocial } from "../flows/social.flow.js"
+import { flowConfirm } from "../flows/confirm.flow.js"
 
 /**
  * Determina que flujo va a iniciarse basado en el historial que previo entre el bot y el humano

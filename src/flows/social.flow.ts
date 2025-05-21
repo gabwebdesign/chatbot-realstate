@@ -1,13 +1,13 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot"
-import AIClass from "src/services/ai"
-import { generateTimer } from "src/utils/generateTimer"
-import { getHistoryParse, handleHistory } from "src/utils/handleHistory";
-import propertyData from "src/utils/property.json";
-import { flowSchedule } from "./schedule.flow";
-import { downloadAndDecryptAudio } from "src/services/whisper/downloadAndDecryptAudio";
-import extractWasiLink from "src/utils/indentifyLink";
-import { getEstatesById } from "src/services/wasi";
-import { GlobalState } from "src/utils/globalManagement";
+import AIClass from "../services/ai"
+import { generateTimer } from "../utils/generateTimer.js"
+import { getHistoryParse, handleHistory } from "../utils/handleHistory.js";
+import propertyData from "../utils/property.json";
+import { flowSchedule } from "./schedule.flow.js";
+import { downloadAndDecryptAudio } from "../services/whisper/downloadAndDecryptAudio.js";
+import extractWasiLink from "../utils/indentifyLink.js";
+import { getEstatesById } from "../services/wasi/index.js";
+import { GlobalState } from "../utils/globalManagement.js";
 
 
 const propiedad = propertyData;

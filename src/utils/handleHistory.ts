@@ -1,5 +1,5 @@
 import { BotState } from "@bot-whatsapp/bot/dist/types"
-import { GlobalState } from "./globalManagement";
+import { GlobalState } from "./globalManagement.js";
 export type History = { role: 'user' | 'assistant', content: string }
 
 

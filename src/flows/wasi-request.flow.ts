@@ -1,6 +1,6 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
-import { IAsearchingEstates } from "src/services/wasi";
-import { handleHistory } from "src/utils/handleHistory";
+import { IAsearchingEstates } from "../services/wasi/index.js";
+import { handleHistory } from "../utils/handleHistory.js";
 
 const flowWasiRequest = addKeyword(EVENTS.WELCOME)
     .addAction(async (_, { state, flowDynamic}) => {

@@ -1,8 +1,8 @@
 import { EVENTS, addKeyword } from "@bot-whatsapp/bot";
-import { handleHistory } from "../utils/handleHistory";
-import conversationalLayer from "src/layers/conversational.layer";
-import mainLayer from "src/layers/main.layer";
-import { GlobalState } from "src/utils/globalManagement";
+import { handleHistory } from "../utils/handleHistory.js";
+import conversationalLayer from "../layers/conversational.layer.js";
+import mainLayer from "../layers/main.layer.js";
+import { GlobalState } from "../utils/globalManagement.js";
 
 const flowWelcome = addKeyword(EVENTS.WELCOME)
     .addAction(async (ctx, { state, flowDynamic }) => {
