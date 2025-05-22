@@ -1,12 +1,12 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
 import AIClass from "../services/ai";
 import { clearHistory, handleHistory, getHistoryParse } from "../utils/handleHistory.js";
-import { getFullCurrentDate } from "../utils/getDates";
+import { getFullCurrentDate } from "../utils/getDates.js";
 import twilio from "twilio";
-import { Customer } from "../utils/types";
-import { GlobalState } from "../utils/globalManagement";
-import { isValidEmail } from "../utils/validEmail";
-import { createContact } from "../services/hubspot/page";
+import { Customer } from "../utils/types.js";
+import { GlobalState } from "../utils/globalManagement.js";
+import { isValidEmail } from "../utils/validEmail.js";
+import { createContact } from "../services/hubspot/page.js";
 
 const generatePromptToFormatDate = (history: string) => {
     const prompt = `Fecha de Hoy:${getFullCurrentDate()}, Basado en el Historial de conversacion: 

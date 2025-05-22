@@ -1,5 +1,5 @@
 import { format, addMinutes } from 'date-fns'
-import { GlobalState } from 'src/utils/globalManagement'
+import { GlobalState } from 'src/utils/globalManagement.js'
 
 /**
  * get calendar

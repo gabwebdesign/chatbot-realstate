@@ -1,9 +1,9 @@
 import 'dotenv/config';
-import AIClass from "../ai";
-import { GlobalState } from 'src/utils/globalManagement';
-import parseToArray from 'src/utils/parseToArray';
-import { getFullCurrentDate, getFullCurrentDateFromTwoWeeks } from 'src/utils/getDates';
-import { Customer, Estates, Task, User } from 'src/utils/types';
+import AIClass from "../ai/index.js";
+import { GlobalState } from 'src/utils/globalManagement.js';
+import parseToArray from 'src/utils/parseToArray.js';
+import { getFullCurrentDate, getFullCurrentDateFromTwoWeeks } from 'src/utils/getDates.js';
+import { Customer, Estates, Task, User } from 'src/utils/types.js';
 
 async function fetchEstates() {
 

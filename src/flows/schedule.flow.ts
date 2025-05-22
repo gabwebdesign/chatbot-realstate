@@ -1,5 +1,5 @@
 import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
-import AIClass from "../services/ai";
+import AIClass from "../services/ai/index.js";
 import { getHistoryParse, handleHistory } from "../utils/handleHistory.js";
 import { generateTimer } from "../utils/generateTimer.js";
 import { getFullCurrentDate } from "../utils/getDates.js";
