@@ -3,10 +3,10 @@ import AIClass from "../services/ai";
 import { clearHistory, handleHistory, getHistoryParse } from "../utils/handleHistory.js";
 import { getFullCurrentDate } from "../utils/getDates";
 import twilio from "twilio";
-import { Customer } from "src/utils/types";
-import { GlobalState } from "src/utils/globalManagement";
-import { isValidEmail } from "src/utils/validEmail";
-import { createContact } from "src/services/hubspot/page";
+import { Customer } from "../utils/types";
+import { GlobalState } from "../utils/globalManagement";
+import { isValidEmail } from "../utils/validEmail";
+import { createContact } from "../services/hubspot/page";
 
 const generatePromptToFormatDate = (history: string) => {
     const prompt = `Fecha de Hoy:${getFullCurrentDate()}, Basado en el Historial de conversacion: 

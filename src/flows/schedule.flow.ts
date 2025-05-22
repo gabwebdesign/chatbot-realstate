@@ -2,8 +2,8 @@ import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
 import AIClass from "../services/ai";
 import { getHistoryParse, handleHistory } from "../utils/handleHistory.js";
 import { generateTimer } from "../utils/generateTimer.js";
-import { getFullCurrentDate } from "src/utils/getDates.js";
-import { gettingAgenda } from "src/services/wasi/index.js";
+import { getFullCurrentDate } from "../utils/getDates.js";
+import { gettingAgenda } from "../services/wasi/index.js";
 import { flowConfirm } from "./confirm.flow.js";
 
 const PROMPT_SCHEDULE = `

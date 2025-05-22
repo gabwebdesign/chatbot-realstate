@@ -2,8 +2,8 @@ import { addKeyword, EVENTS } from "@bot-whatsapp/bot";
 import { generateTimer } from "../utils/generateTimer.js";
 import { getHistoryParse, handleHistory } from "../utils/handleHistory.js";
 import AIClass from "../services/ai/index.js";
-import { getFullCurrentDate } from "src/utils/getDates.js";
-import { getProducts } from "src/services/hubspot/page.js";
+import { getFullCurrentDate } from "../utils/getDates.js";
+import { getProducts } from "../services/hubspot/page.js";
 
 
 const PROMPT_SELLER = `Actúa como un agente inmobiliario profesional, cordial y enfocado en ayudar al cliente a encontrar la propiedad ideal.
